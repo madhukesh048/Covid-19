@@ -1,15 +1,15 @@
 import 'package:covid19/core/base/base_view_model.dart';
+import 'package:covid19/core/services/data_service.dart';
+import 'package:flutter/material.dart';
 
 class HomeViewModel extends BaseViewModel {
-  int _counter;
+  final DataService _dataService;
 
-  HomeViewModel({int counter = 0}) : this._counter = counter;
+  HomeViewModel({
+    @required DataService dataService,
+  }) : this._dataService = dataService;
 
-  int get counter => this._counter;
-  set counter(int value) {
-    this._counter = value;
-    notifyListeners();
+  fetchWorldData() async{
+await _dataService.getWorldInfo();
   }
-
-  void increment() => this.counter += 1;
 }

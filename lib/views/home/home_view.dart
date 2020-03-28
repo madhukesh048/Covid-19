@@ -1,5 +1,6 @@
 library home_view;
 
+import 'package:provider/provider.dart';
 import 'package:provider_architecture/provider_architecture.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
@@ -12,11 +13,11 @@ part 'home_desktop.dart';
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    HomeViewModel viewModel = HomeViewModel();
+    HomeViewModel viewModel = HomeViewModel(dataService: Provider.of(context));
     return ViewModelProvider<HomeViewModel>.withConsumer(
       viewModel: viewModel,
       onModelReady: (viewModel) {
-        // Do something once your viewModel is initialized
+        viewModel.fetchWorldData();
       },
       builder: (context, viewModel, child) {
         return ScreenTypeLayout(

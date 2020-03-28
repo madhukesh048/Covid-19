@@ -1,4 +1,5 @@
-import 'package:covid19/core/services/data_service.dart';
+import 'package:covid19/core/services/api_service.dart';
+import 'package:covid19/core/services/http_service.dart';
 
 import '../core/locator.dart';
 import '../core/services/navigator_service.dart';
@@ -13,10 +14,14 @@ class ProviderInjector {
 
   static List<SingleChildCloneableWidget> _independentServices = [
     Provider.value(value: locator<NavigatorService>()),
-    Provider.value(value: locator<DataService>())
+    Provider.value(value: HttpService()),
   ];
 
-  static List<SingleChildCloneableWidget> _dependentServices = [];
-  
+  static List<SingleChildCloneableWidget> _dependentServices = [
+    ProxyProvider<HttpService, ApiService>(update: (context, http, _) {
+      return ApiService(httpService: http);
+    })
+  ];
+
   static List<SingleChildCloneableWidget> _consumableServices = [];
 }

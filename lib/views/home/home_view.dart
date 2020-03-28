@@ -13,19 +13,20 @@ part 'home_desktop.dart';
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    HomeViewModel viewModel = HomeViewModel(dataService: Provider.of(context));
-    return ViewModelProvider<HomeViewModel>.withConsumer(
-      viewModel: viewModel,
-      onModelReady: (viewModel) {
-        viewModel.fetchWorldData();
-      },
-      builder: (context, viewModel, child) {
-        return ScreenTypeLayout(
-          mobile: _HomeMobile(viewModel),
-          desktop: _HomeDesktop(viewModel),
-          tablet: _HomeTablet(viewModel),  
-        );
-      }
+    HomeViewModel viewModel = HomeViewModel(
+      apiService: Provider.of(context),
     );
+    return ViewModelProvider<HomeViewModel>.withConsumer(
+        viewModel: viewModel,
+        onModelReady: (viewModel) {
+          viewModel.fetchAllCountries();
+        },
+        builder: (context, viewModel, child) {
+          return ScreenTypeLayout(
+            mobile: _HomeMobile(viewModel),
+            desktop: _HomeDesktop(viewModel),
+            tablet: _HomeTablet(viewModel),
+          );
+        });
   }
 }

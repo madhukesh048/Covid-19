@@ -51,7 +51,7 @@ class _HomeTablet extends StatelessWidget {
                 ),
               ),
               ListTile(
-                onTap: (){
+                onTap: () {
                   viewModel.goToWorldNews();
                 },
                 title: Text(

@@ -69,7 +69,7 @@ class _WorldNewsDesktop extends StatelessWidget {
         ),
         body: viewModel.busy != true
             ? GridView.count(
-                crossAxisCount: 6,
+                crossAxisCount: 4,
                 children: List<Widget>.generate(
                     viewModel.worldNews.articles.length, (index) {
                   return GridTile(

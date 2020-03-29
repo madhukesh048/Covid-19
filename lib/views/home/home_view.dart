@@ -1,5 +1,7 @@
 library home_view;
 
+import 'package:intl/intl.dart';
+import 'package:pie_chart/pie_chart.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_architecture/provider_architecture.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -15,11 +17,13 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     HomeViewModel viewModel = HomeViewModel(
       apiService: Provider.of(context),
+      navigatorService: Provider.of(context),
     );
     return ViewModelProvider<HomeViewModel>.withConsumer(
         viewModel: viewModel,
         onModelReady: (viewModel) {
           viewModel.fetchAllCountries();
+          viewModel.fetchWorldData();
         },
         builder: (context, viewModel, child) {
           return ScreenTypeLayout(

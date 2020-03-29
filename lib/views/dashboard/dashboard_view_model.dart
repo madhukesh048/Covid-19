@@ -1,20 +1,19 @@
 import 'package:covid19/core/base/base_view_model.dart';
 import 'package:covid19/core/models/country_data.dart';
+import 'package:covid19/core/models/date_wise_count.dart';
 import 'package:covid19/core/models/world_data.dart';
-import 'package:covid19/core/models/world_news.dart';
 import 'package:covid19/core/services/api_service.dart';
 import 'package:covid19/core/services/navigator_service.dart';
-import 'package:covid19/views/core/core_view.dart';
-import 'package:covid19/views/country_details/country_details_view.dart';
+import 'package:covid19/views/home/home_view.dart';
 import 'package:covid19/views/india_home/india_home_view.dart';
-import 'package:covid19/views/world_news/world_news_view.dart';
 import 'package:flutter/material.dart';
 
-class HomeViewModel extends BaseViewModel {
+class DashboardViewModel extends BaseViewModel {
   final ApiService apiService;
   final NavigatorService navigatorService;
-  List<CountryData> countries;
   WorldData worldData;
+  List<CountryData> countries;
+  DateWiseCount dateWiseCount;
 
   Map<String, double> dataMap = Map();
   List<Color> colorList = [
@@ -23,21 +22,10 @@ class HomeViewModel extends BaseViewModel {
     Colors.red[400],
   ];
 
-  HomeViewModel({
+  DashboardViewModel({
     @required this.apiService,
     @required this.navigatorService,
   });
-
-  void fetchAllCountries() async {
-    log.i('fetchAllCountries');
-    busy = true;
-    countries = await apiService.getAffectedCountries();
-    countries.forEach(
-      (element) {
-        busy = false;
-      },
-    );
-  }
 
   void fetchWorldData() async {
     log.i('fetchWorldData');
@@ -52,25 +40,22 @@ class HomeViewModel extends BaseViewModel {
     // fetchDateWiseCount();
   }
 
-  void goToDetailsPage(int index) {
-    this.navigatorService.navigateToPage(MaterialPageRoute(
-        builder: (context) => CountryDetailsView(
-              countries: countries.elementAt(index),
-            )));
-  }
+  // void fetchDateWiseCount() async {
+  //   log.i('fetchDateWiseCount');
+  //   busy = true;
+  //   dateWiseCount = await apiService.getDateWiseCount();
+  //   print(dateWiseCount.result);
+  //   busy = false;
+  // }
 
-  void goToIndiaHome() {
+  void goToWorldHomePage() {
     this
         .navigatorService
-        .navigateToPage(MaterialPageRoute(builder: (context) => CoreView()));
+        .navigateToPage(MaterialPageRoute(builder: (context) => HomeView()));
   }
 
-  void goToWorldHome() {
-    this.navigatorService.pop();
-  }
-   void goToWorldNews() {
-    this
-        .navigatorService
-        .navigateToPage(MaterialPageRoute(builder: (context) => WorldNewsView()));
+  void goToIndiaHomePage() {
+    this.navigatorService.navigateToPage(
+        MaterialPageRoute(builder: (context) => IndiaHomeView()));
   }
 }

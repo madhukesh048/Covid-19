@@ -69,68 +69,165 @@ class _WorldNewsMobile extends StatelessWidget {
       ),
       body: Center(
           child: viewModel.busy != true
-              ? Column(
-                  children: <Widget>[
-                    Expanded(
-                      child: ListView.builder(
-                          itemCount: viewModel.worldNews.articles.length,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              height: MediaQuery.of(context).size.height / 8,
-                              child: GestureDetector(
-                                onTap: () {
-                                  viewModel.launchURL(viewModel
-                                      .worldNews.articles
-                                      .elementAt(index)
-                                      .url);
-                                },
-                                child: Card(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(2.0),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                          viewModel.worldNews.articles
-                                              .elementAt(index)
-                                              .title,
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.w500),
-                                          overflow: TextOverflow.ellipsis,
-                                          maxLines: 2,
-                                        ),
-                                        Text(
-                                          'source: ' +
-                                              viewModel.worldNews.articles
-                                                  .elementAt(index)
-                                                  .source
-                                                  .name,
-                                        ),
-                                        Text(
-                                          'Published At: ' +
-                                              DateFormat('kk:mm:a dd-MM-yyyy ,')
-                                                  .format(viewModel
-                                                      .worldNews.articles
+              ? Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: <Widget>[
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: viewModel.worldNews.articles.length,
+                            itemBuilder: (context, index) {
+                              return Container(
+                                height: MediaQuery.of(context).size.height / 5,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    viewModel.launchURL(viewModel
+                                        .worldNews.articles
+                                        .elementAt(index)
+                                        .url);
+                                  },
+                                  child: Card(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              Container(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    1.6,
+                                                child: Text(
+                                                  viewModel.worldNews.articles
                                                       .elementAt(index)
-                                                      .publishedAt),
-                                          style: TextStyle(
-                                              color: Colors.grey,
-                                              fontStyle: FontStyle.italic),
-                                        ),
-                                      ],
+                                                      .title,
+                                                  style: TextStyle(
+                                                      fontSize: 18,
+                                                      color: Colors.black,
+                                                      fontWeight:
+                                                          FontWeight.w500),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  maxLines: 4,
+                                                ),
+                                              ),
+                                              Text(
+                                                'source: ' +
+                                                    viewModel.worldNews.articles
+                                                        .elementAt(index)
+                                                        .source
+                                                        .name,
+                                              ),
+                                              Text(
+                                                'Published At: ' +
+                                                    DateFormat(
+                                                            'kk:mm:a dd-MM-yyyy')
+                                                        .format(viewModel
+                                                            .worldNews.articles
+                                                            .elementAt(index)
+                                                            .publishedAt),
+                                                style: TextStyle(
+                                                  color: Colors.grey[600],
+                                                ),
+                                              ),
+                                              Text(
+                                                'Continue Reading...',
+                                                style: TextStyle(
+                                                    fontSize: 10,
+                                                    fontStyle: FontStyle.italic,
+                                                    color: Colors.grey),
+                                              )
+                                            ],
+                                          ),
+                                          Expanded(
+                                            child: SizedBox(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width /
+                                                  3,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height /
+                                                  6,
+                                              child: Image.network(
+                                                viewModel.worldNews.articles
+                                                        .elementAt(index)
+                                                        .urlToImage ??
+                                                    'https://www.ajactraining.org/wp-content/uploads/2019/09/image-placeholder.jpg',
+                                                fit: BoxFit.fill,
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
+                                  // child: Card(
+                                  //   child: Padding(
+                                  //     padding: const EdgeInsets.all(8.0),
+                                  //     child: Column(
+                                  //       children: <Widget>[
+                                  //         Text(
+                                  //           viewModel.worldNews.articles
+                                  //               .elementAt(index)
+                                  //               .title,
+                                  //           style: TextStyle(
+                                  //               fontSize: 18,
+                                  //               color: Colors.black,
+                                  //               fontWeight: FontWeight.w500),
+                                  //           overflow: TextOverflow.ellipsis,
+                                  //           maxLines: 2,
+                                  //         ),
+                                  //         Row(
+                                  //           children: <Widget>[
+                                  //             Expanded(
+                                  //               child: Column(
+                                  //                 mainAxisAlignment:
+                                  //                     MainAxisAlignment.start,
+                                  //                 crossAxisAlignment:
+                                  //                     CrossAxisAlignment.start,
+                                  //                 children: <Widget>[
+                                  //
+                                  //
+                                  //                 ],
+                                  //               ),
+                                  //             ),
+                                  //             SizedBox(
+                                  //               width: MediaQuery.of(context)
+                                  //                       .size
+                                  //                       .width /
+                                  //                   3,
+                                  //               height: MediaQuery.of(context)
+                                  //                       .size
+                                  //                       .height /
+                                  //                   9,
+                                  //               child: Image.network(viewModel
+                                  //                       .worldNews.articles
+                                  //                       .elementAt(index)
+                                  //                       .urlToImage ??
+                                  //                   'https://www.ajactraining.org/wp-content/uploads/2019/09/image-placeholder.jpg'),
+                                  //             )
+                                  //           ],
+                                  //         ),
+                                  //       ],
+                                  //     ),
+                                  //   ),
+                                  // ),
                                 ),
-                              ),
-                            );
-                          }),
-                    )
-                  ],
+                              );
+                            }),
+                      )
+                    ],
+                  ),
                 )
               : CircularProgressIndicator()),
     );

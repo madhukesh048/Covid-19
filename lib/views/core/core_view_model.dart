@@ -1,4 +1,5 @@
 import 'package:covid19/core/base/base_view_model.dart';
+import 'package:covid19/core/models/india_data.dart';
 import 'package:covid19/core/models/india_data_unoff.dart';
 import 'package:covid19/core/services/api_service.dart';
 import 'package:covid19/core/services/navigator_service.dart';
@@ -11,6 +12,7 @@ class CoreViewModel extends BaseViewModel {
   final ApiService apiService;
   final NavigatorService navigatorService;
   IndiaDataUnOff indiaDataUnOff;
+  IndiaData indiaData;
   CoreViewModel({
     @required this.apiService,
     @required this.navigatorService,
@@ -20,6 +22,13 @@ class CoreViewModel extends BaseViewModel {
     log.i('fetchIndiadata');
     busy = true;
     indiaDataUnOff = await apiService.getIndiaDataUnOff();
+    busy = false;
+  }
+
+  void fetchIndiaDataOff() async {
+    log.i('fetchIndiadata');
+    busy = true;
+    indiaData = await apiService.getIndiaData();
     busy = false;
   }
 
@@ -39,9 +48,9 @@ class CoreViewModel extends BaseViewModel {
         .navigatorService
         .navigateToPage(MaterialPageRoute(builder: (context) => HomeView()));
   }
+
   void goToWorldNews() {
-    this
-        .navigatorService
-        .navigateToPage(MaterialPageRoute(builder: (context) => WorldNewsView()));
+    this.navigatorService.navigateToPage(
+        MaterialPageRoute(builder: (context) => WorldNewsView()));
   }
 }

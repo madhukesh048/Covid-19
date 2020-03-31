@@ -218,8 +218,7 @@ class _CoreMobile extends StatelessWidget {
                   // ),
                   Text(
                     'Active: ' +
-                        (viewModel.indiaDataUnOff.data.total.active
-                            .toString()),
+                        (viewModel.indiaDataUnOff.data.total.active.toString()),
                     style: TextStyle(fontSize: 20, color: Colors.blue[300]),
                   ),
                   // SizedBox(
@@ -229,31 +228,40 @@ class _CoreMobile extends StatelessWidget {
                     'Recovered: ' +
                         (viewModel.indiaDataUnOff.data.total.recovered)
                             .toString(),
-                    style:
-                        TextStyle(fontSize: 20, color: Colors.green[400]),
+                    style: TextStyle(fontSize: 20, color: Colors.green[400]),
                   ),
                   // SizedBox(
                   //   height: 10,
                   // ),
                   Text(
                     'Deaths: ' +
-                        (viewModel.indiaDataUnOff.data.total.deaths)
-                            .toString(),
+                        (viewModel.indiaDataUnOff.data.total.deaths).toString(),
                     style: TextStyle(fontSize: 20, color: Colors.red[400]),
+                  ),
+                  // SizedBox(
+                  //   height: 3,
+                  // ),
+                   Text(
+                    'Data Source: covid19india.org',
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                        fontStyle: FontStyle.normal),
                   ),
                   SizedBox(
                     height: 3,
                   ),
                   Text(
-                      'Last Updated on: ' +
-                          DateFormat('kk:mm:a dd-MM-yyyy')
-                              .format(
-                                  viewModel.indiaDataUnOff.lastOriginUpdate)
-                              .toString(),
-                      style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey,
-                          fontStyle: FontStyle.italic)),
+                    'Last Updated on: ' +
+                        DateFormat('kk:mm:a dd-MM-yyyy')
+                            .format(viewModel.indiaDataUnOff.lastOriginUpdate)
+                            .toString(),
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.grey,
+                        fontStyle: FontStyle.italic),
+                  ),
+                  
                   SizedBox(
                     height: 40,
                   ),

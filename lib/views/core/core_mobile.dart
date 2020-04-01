@@ -8,36 +8,6 @@ class _CoreMobile extends StatelessWidget {
     Colors.green[400],
     Colors.red[400],
   ];
-  //  var  lineCaseData=[
-  //   DayWiseData('0',47),
-  //   DayWiseData('Mar 10',47),
-  //   DayWiseData('Mar 11',60),
-  //   DayWiseData('Mar 12',74),
-  //   DayWiseData('Mar 13',81),
-  //   DayWiseData('Mar 14',84),
-  //   DayWiseData('Mar 15',110),
-  //   DayWiseData('Mar 16',114),
-  //   DayWiseData('Mar 17',137),
-  //   DayWiseData('Mar 18',150),
-  //   DayWiseData('Mar 19',171),
-  //   DayWiseData('Mar 20',223),
-  //   DayWiseData('Mar 21',283),
-  //   DayWiseData('Mar 22',360),
-  //   DayWiseData('Mar 23',434),
-  //   DayWiseData('Mar 24',519),
-  //   DayWiseData('Mar 25',606),
-  //   DayWiseData('Mar 26',693),
-  //   DayWiseData('Mar 27',724),
-  //   DayWiseData('Mar 28',909),
-  //   DayWiseData('Mar 29',1072),
-  //   DayWiseData('Mar 30',1119),
-  //   // DayWiseData('Mar 10',47),
-  //   // DayWiseData('Mar 10',47),
-  //   // DayWiseData('Mar 10',47),
-  //   // DayWiseData('Mar 10',47),
-  //   // DayWiseData('Mar 10',47),
-
-  // ];
 
   _CoreMobile(this.viewModel);
 
@@ -196,22 +166,155 @@ class _CoreMobile extends StatelessWidget {
   }
 
   Widget getStatsPage() {
+    var totalData = [
+      TimeSeriesCases(DateTime(2020, 3, 1), 3),
+      TimeSeriesCases(DateTime(2020, 3, 2), 5),
+      TimeSeriesCases(DateTime(2020, 3, 3), 6),
+      TimeSeriesCases(DateTime(2020, 3, 4), 28),
+      TimeSeriesCases(DateTime(2020, 3, 5), 30),
+      TimeSeriesCases(DateTime(2020, 3, 6), 31),
+      TimeSeriesCases(DateTime(2020, 3, 7), 34),
+      TimeSeriesCases(DateTime(2020, 3, 8), 39),
+      TimeSeriesCases(DateTime(2020, 3, 9), 48),
+      TimeSeriesCases(DateTime(2020, 3, 10), 63),
+      TimeSeriesCases(DateTime(2020, 3, 11), 70),
+      TimeSeriesCases(DateTime(2020, 3, 12), 82),
+      TimeSeriesCases(DateTime(2020, 3, 13), 91),
+      TimeSeriesCases(DateTime(2020, 3, 14), 107),
+      TimeSeriesCases(DateTime(2020, 3, 15), 113),
+      TimeSeriesCases(DateTime(2020, 3, 16), 127),
+      TimeSeriesCases(DateTime(2020, 3, 17), 146),
+      TimeSeriesCases(DateTime(2020, 3, 18), 171),
+      TimeSeriesCases(DateTime(2020, 3, 19), 199),
+      TimeSeriesCases(DateTime(2020, 3, 20), 258),
+      TimeSeriesCases(DateTime(2020, 3, 21), 334),
+      TimeSeriesCases(DateTime(2020, 3, 22), 403),
+      TimeSeriesCases(DateTime(2020, 3, 23), 505),
+      TimeSeriesCases(DateTime(2020, 3, 24), 571),
+      TimeSeriesCases(DateTime(2020, 3, 25), 657),
+      TimeSeriesCases(DateTime(2020, 3, 26), 735),
+      TimeSeriesCases(DateTime(2020, 3, 27), 886),
+      TimeSeriesCases(DateTime(2020, 3, 28), 1029),
+      TimeSeriesCases(DateTime(2020, 3, 29), 1139),
+      TimeSeriesCases(DateTime(2020, 3, 30), 1347),
+      TimeSeriesCases(DateTime(2020, 3, 31), 1624),
+      TimeSeriesCases(DateTime(2020, 4, 1), 1966),
+    ];
+    var dailyData = [
+      TimeSeriesCases(DateTime(2020, 3, 1), 0),
+      TimeSeriesCases(DateTime(2020, 3, 2), 2),
+      TimeSeriesCases(DateTime(2020, 3, 3), 1),
+      TimeSeriesCases(DateTime(2020, 3, 4), 22),
+      TimeSeriesCases(DateTime(2020, 3, 5), 2),
+      TimeSeriesCases(DateTime(2020, 3, 6), 1),
+      TimeSeriesCases(DateTime(2020, 3, 7), 3),
+      TimeSeriesCases(DateTime(2020, 3, 8), 5),
+      TimeSeriesCases(DateTime(2020, 3, 9), 9),
+      TimeSeriesCases(DateTime(2020, 3, 10), 15),
+      TimeSeriesCases(DateTime(2020, 3, 11), 7),
+      TimeSeriesCases(DateTime(2020, 3, 12), 12),
+      TimeSeriesCases(DateTime(2020, 3, 13), 9),
+      TimeSeriesCases(DateTime(2020, 3, 14), 16),
+      TimeSeriesCases(DateTime(2020, 3, 15), 6),
+      TimeSeriesCases(DateTime(2020, 3, 16), 14),
+      TimeSeriesCases(DateTime(2020, 3, 17), 19),
+      TimeSeriesCases(DateTime(2020, 3, 18), 25),
+      TimeSeriesCases(DateTime(2020, 3, 19), 28),
+      TimeSeriesCases(DateTime(2020, 3, 20), 59),
+      TimeSeriesCases(DateTime(2020, 3, 21), 76),
+      TimeSeriesCases(DateTime(2020, 3, 22), 69),
+      TimeSeriesCases(DateTime(2020, 3, 23), 102),
+      TimeSeriesCases(DateTime(2020, 3, 24), 66),
+      TimeSeriesCases(DateTime(2020, 3, 25), 86),
+      TimeSeriesCases(DateTime(2020, 3, 26), 78),
+      TimeSeriesCases(DateTime(2020, 3, 27), 151),
+      TimeSeriesCases(DateTime(2020, 3, 28), 143),
+      TimeSeriesCases(DateTime(2020, 3, 29), 110),
+      TimeSeriesCases(DateTime(2020, 3, 30), 208),
+      TimeSeriesCases(DateTime(2020, 3, 31), 277),
+      TimeSeriesCases(DateTime(2020, 4, 1), 331),
+    ];
+    var dailyRecovered = [
+      TimeSeriesRecoverCases(DateTime(2020, 3, 1), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 2), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 3), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 4), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 5), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 6), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 7), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 8), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 9), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 10), 1),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 11), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 12), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 13), 6),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 14), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 15), 3),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 16), 1),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 17), 1),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 18), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 19), 5),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 20), 3),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 21), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 22), 0),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 23), 2),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 24), 15),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 25), 3),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 26), 7),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 27), 25),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 28), 10),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 29), 17),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 30), 35),
+      TimeSeriesRecoverCases(DateTime(2020, 3, 31), 13),
+      TimeSeriesRecoverCases(DateTime(2020, 4, 1), 18),
+    ];
+    var dailyDeaths = [
+      TimeSeriesDeathCases(DateTime(2020, 3, 1), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 2), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 3), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 4), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 5), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 6), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 7), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 8), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 9), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 10), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 11), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 12), 1),
+      TimeSeriesDeathCases(DateTime(2020, 3, 13), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 14), 1),
+      TimeSeriesDeathCases(DateTime(2020, 3, 15), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 16), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 17), 1),
+      TimeSeriesDeathCases(DateTime(2020, 3, 18), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 19), 1),
+      TimeSeriesDeathCases(DateTime(2020, 3, 20), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 21), 0),
+      TimeSeriesDeathCases(DateTime(2020, 3, 22), 3),
+      TimeSeriesDeathCases(DateTime(2020, 3, 23), 2),
+      TimeSeriesDeathCases(DateTime(2020, 3, 24), 1),
+      TimeSeriesDeathCases(DateTime(2020, 3, 25), 1),
+      TimeSeriesDeathCases(DateTime(2020, 3, 26), 5),
+      TimeSeriesDeathCases(DateTime(2020, 3, 27), 3),
+      TimeSeriesDeathCases(DateTime(2020, 3, 28), 5),
+      TimeSeriesDeathCases(DateTime(2020, 3, 29), 3),
+      TimeSeriesDeathCases(DateTime(2020, 3, 30), 16),
+      TimeSeriesDeathCases(DateTime(2020, 3, 31), 6),
+      TimeSeriesDeathCases(DateTime(2020, 4, 1), 6),
+    ];
     return viewModel.busy != true
         ? SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding: const EdgeInsets.all(12.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  SizedBox(
-                    height: 10,
-                  ),
                   Text(
                     'Total Cases: ' +
                         (viewModel.indiaDataUnOff.data.total.confirmed
                             .toString()),
-                    style: TextStyle(fontSize: 24),
+                    style: TextStyle(fontSize: 20),
                   ),
                   // SizedBox(
                   //   height: 10,
@@ -219,7 +322,7 @@ class _CoreMobile extends StatelessWidget {
                   Text(
                     'Active: ' +
                         (viewModel.indiaDataUnOff.data.total.active.toString()),
-                    style: TextStyle(fontSize: 20, color: Colors.blue[300]),
+                    style: TextStyle(fontSize: 16, color: Colors.blue[300]),
                   ),
                   // SizedBox(
                   //   height: 10,
@@ -228,7 +331,7 @@ class _CoreMobile extends StatelessWidget {
                     'Recovered: ' +
                         (viewModel.indiaDataUnOff.data.total.recovered)
                             .toString(),
-                    style: TextStyle(fontSize: 20, color: Colors.green[400]),
+                    style: TextStyle(fontSize: 16, color: Colors.green[400]),
                   ),
                   // SizedBox(
                   //   height: 10,
@@ -236,12 +339,12 @@ class _CoreMobile extends StatelessWidget {
                   Text(
                     'Deaths: ' +
                         (viewModel.indiaDataUnOff.data.total.deaths).toString(),
-                    style: TextStyle(fontSize: 20, color: Colors.red[400]),
+                    style: TextStyle(fontSize: 16, color: Colors.red[400]),
                   ),
                   // SizedBox(
                   //   height: 3,
                   // ),
-                   Text(
+                  Text(
                     'Data Source: covid19india.org',
                     style: TextStyle(
                         fontSize: 14,
@@ -261,21 +364,39 @@ class _CoreMobile extends StatelessWidget {
                         color: Colors.grey,
                         fontStyle: FontStyle.italic),
                   ),
-                  
+
                   SizedBox(
-                    height: 40,
+                    height: 10,
                   ),
                   PieChart(
                     dataMap: dataMap,
                     colorList: colorList,
                     legendPosition: LegendPosition.bottom,
-                    chartRadius: 300,
+                    chartRadius: 200,
                     showChartValuesInPercentage: false,
                     showChartValues: false,
                     showChartValueLabel: false,
                     showChartValuesOutside: false,
                     showLegends: false,
                   ),
+                  SizedBox(height: 10),
+
+                  TimeChart(
+                    dataList: totalData,
+                    title: 'Daywise Total Cases Trend'.toUpperCase(),
+                  ),
+                  TimeChart(
+                    dataList: dailyData,
+                    title: "Daywise New Cases".toUpperCase(),
+                  ),
+                  RecoveredChart(
+                    dataList: dailyRecovered,
+                    title: 'Daywise Recovered Cases'.toUpperCase(),
+                  ),
+                  DeathChart(
+                    dataList: dailyDeaths,
+                    title: 'Daywise Deaths'.toUpperCase(),
+                  )
                 ],
               ),
             ),
@@ -285,10 +406,3 @@ class _CoreMobile extends StatelessWidget {
           );
   }
 }
-
-// class DayWiseData {
-//   String dateVal;
-//   int casesVal;
-
-//   DayWiseData(this.dateVal, this.casesVal);
-// }

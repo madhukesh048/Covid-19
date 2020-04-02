@@ -135,8 +135,6 @@ class _HomeMobile extends StatelessWidget {
   }
 
   Widget getStatsPage() {
-    var updatedDate =
-        DateTime.fromMillisecondsSinceEpoch(viewModel.worldData.updated * 1000);
     return viewModel.worldData != null
         ? SingleChildScrollView(
             child: Padding(
@@ -169,7 +167,10 @@ class _HomeMobile extends StatelessWidget {
                   ),
                   Text(
                       'Last Updated on: ' +
-                          DateFormat('kk:mm:a').format(updatedDate).toString(),
+                          DateFormat('kk:mm:a')
+                              .format(DateTime.fromMillisecondsSinceEpoch(
+                                  viewModel.worldData.updated * 1000))
+                              .toString(),
                       style: TextStyle(
                           fontSize: 12,
                           color: Colors.grey,

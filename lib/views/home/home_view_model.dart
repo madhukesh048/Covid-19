@@ -14,6 +14,7 @@ class HomeViewModel extends BaseViewModel {
   final ApiService apiService;
   final NavigatorService navigatorService;
   List<CountryData> countries;
+  List<CountryData> countriesWOI;
   WorldData worldData;
 
   Map<String, double> dataMap = Map();
@@ -22,8 +23,6 @@ class HomeViewModel extends BaseViewModel {
     Colors.green[400],
     Colors.red[400],
   ];
-
-  
 
   HomeViewModel({
     @required this.apiService,
@@ -34,11 +33,9 @@ class HomeViewModel extends BaseViewModel {
     log.i('fetchAllCountries');
     busy = true;
     countries = await apiService.getAffectedCountries();
-    countries.forEach(
-      (element) {
-        busy = false;
-      },
-    );
+    countries.removeWhere((element) => element.countryInfo.id == 356);
+    notifyListeners();
+    busy = false;
   }
 
   void fetchWorldData() async {
@@ -70,9 +67,9 @@ class HomeViewModel extends BaseViewModel {
   void goToWorldHome() {
     this.navigatorService.pop();
   }
-   void goToWorldNews() {
-    this
-        .navigatorService
-        .navigateToPage(MaterialPageRoute(builder: (context) => WorldNewsView()));
+
+  void goToWorldNews() {
+    this.navigatorService.navigateToPage(
+        MaterialPageRoute(builder: (context) => WorldNewsView()));
   }
 }

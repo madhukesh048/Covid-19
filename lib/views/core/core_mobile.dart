@@ -199,6 +199,7 @@ class _CoreMobile extends StatelessWidget {
       TimeSeriesCases(DateTime(2020, 3, 30), 1347),
       TimeSeriesCases(DateTime(2020, 3, 31), 1624),
       TimeSeriesCases(DateTime(2020, 4, 1), 2059),
+       TimeSeriesCases(DateTime(2020, 4, 2), 2536),
     ];
     var dailyData = [
       TimeSeriesCases(DateTime(2020, 3, 1), 0),
@@ -233,6 +234,7 @@ class _CoreMobile extends StatelessWidget {
       TimeSeriesCases(DateTime(2020, 3, 30), 208),
       TimeSeriesCases(DateTime(2020, 3, 31), 277),
       TimeSeriesCases(DateTime(2020, 4, 1), 424),
+       TimeSeriesCases(DateTime(2020, 4, 2), 477),
     ];
     var dailyRecovered = [
       TimeSeriesRecoverCases(DateTime(2020, 3, 1), 0),
@@ -267,6 +269,7 @@ class _CoreMobile extends StatelessWidget {
       TimeSeriesRecoverCases(DateTime(2020, 3, 30), 35),
       TimeSeriesRecoverCases(DateTime(2020, 3, 31), 13),
       TimeSeriesRecoverCases(DateTime(2020, 4, 1), 19),
+         TimeSeriesRecoverCases(DateTime(2020, 4, 2), 20),
     ];
     var dailyDeaths = [
       TimeSeriesDeathCases(DateTime(2020, 3, 1), 0),
@@ -301,6 +304,8 @@ class _CoreMobile extends StatelessWidget {
       TimeSeriesDeathCases(DateTime(2020, 3, 30), 16),
       TimeSeriesDeathCases(DateTime(2020, 3, 31), 6),
       TimeSeriesDeathCases(DateTime(2020, 4, 1), 7),
+      TimeSeriesDeathCases(DateTime(2020, 4, 2), 16),
+      
     ];
     return viewModel.busy != true
         ? SingleChildScrollView(

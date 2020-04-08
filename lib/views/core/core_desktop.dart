@@ -52,7 +52,9 @@ class _CoreDesktop extends StatelessWidget {
                 ),
               ),
               ListTile(
-                onTap: viewModel.goToIndiaHome,
+                onTap: (){
+                  viewModel.goToIndiaHome();
+                },
                 title: Text(
                   "INDIA",
                   style: TextStyle(fontSize: 20),

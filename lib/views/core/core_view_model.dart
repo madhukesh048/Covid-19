@@ -3,6 +3,7 @@ import 'package:covid19/core/models/india_data.dart';
 import 'package:covid19/core/models/india_data_unoff.dart';
 import 'package:covid19/core/services/api_service.dart';
 import 'package:covid19/core/services/navigator_service.dart';
+import 'package:covid19/views/core/core_view.dart';
 import 'package:covid19/views/home/home_view.dart';
 import 'package:covid19/views/state_details/state_details_view.dart';
 import 'package:covid19/views/world_news/world_news_view.dart';
@@ -39,8 +40,8 @@ class CoreViewModel extends BaseViewModel {
             )));
   }
 
-  void goToIndiaHome() {
-    this.navigatorService.pop();
+  void goToIndiaHome(){
+    this.navigatorService.navigateToPageWithReplacement(MaterialPageRoute(builder: (context) => CoreView()));
   }
 
   void goToWorldHome() {

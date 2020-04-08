@@ -6,6 +6,7 @@ import 'package:covid19/core/services/api_service.dart';
 import 'package:covid19/core/services/navigator_service.dart';
 import 'package:covid19/views/core/core_view.dart';
 import 'package:covid19/views/country_details/country_details_view.dart';
+import 'package:covid19/views/home/home_view.dart';
 
 import 'package:covid19/views/world_news/world_news_view.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,9 @@ class HomeViewModel extends BaseViewModel {
   }
 
   void goToWorldHome() {
-    this.navigatorService.pop();
+     this
+        .navigatorService
+        .navigateToPage(MaterialPageRoute(builder: (context) => HomeView()));
   }
 
   void goToWorldNews() {

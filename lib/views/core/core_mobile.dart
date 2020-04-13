@@ -27,7 +27,7 @@ class _CoreMobile extends StatelessWidget {
         : Offstage();
 
     return MaterialApp(
-      home: DefaultTabController(
+        home: DefaultTabController(
       length: 2,
       child: Scaffold(
           appBar: AppBar(
@@ -116,9 +116,12 @@ class _CoreMobile extends StatelessWidget {
                     child: Card(
                       elevation: 3,
                       child: ListTile(
-                        title: Text(viewModel.indiaDataUnOff.data.statewise
-                            .elementAt(index)
-                            .state,style: TextStyle(fontWeight: FontWeight.bold),),
+                        title: Text(
+                          viewModel.indiaDataUnOff.data.statewise
+                              .elementAt(index)
+                              .state,
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                         trailing: Icon(Icons.chevron_right),
                         subtitle: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -203,9 +206,13 @@ class _CoreMobile extends StatelessWidget {
       TimeSeriesCases(DateTime(2020, 4, 3), 3105),
       TimeSeriesCases(DateTime(2020, 4, 4), 3684),
       TimeSeriesCases(DateTime(2020, 4, 5), 4289),
-       TimeSeriesCases(DateTime(2020, 4, 6), 4778),
-       TimeSeriesCases(DateTime(2020, 4, 7), 5351),
-       TimeSeriesCases(DateTime(2020, 4, 8), 5916),
+      TimeSeriesCases(DateTime(2020, 4, 6), 4778),
+      TimeSeriesCases(DateTime(2020, 4, 7), 5351),
+      TimeSeriesCases(DateTime(2020, 4, 8), 5916),
+      TimeSeriesCases(DateTime(2020, 4, 9), 6729),
+      TimeSeriesCases(DateTime(2020, 4, 10), 7600),
+      TimeSeriesCases(DateTime(2020, 4, 11), 8454),
+      TimeSeriesCases(DateTime(2020, 4, 12), 9212),
     ];
     var dailyData = [
       TimeSeriesCases(DateTime(2020, 3, 1), 0),
@@ -244,9 +251,13 @@ class _CoreMobile extends StatelessWidget {
       TimeSeriesCases(DateTime(2020, 4, 3), 560),
       TimeSeriesCases(DateTime(2020, 4, 4), 579),
       TimeSeriesCases(DateTime(2020, 4, 5), 605),
-       TimeSeriesCases(DateTime(2020, 4, 6), 489),
-         TimeSeriesCases(DateTime(2020, 4, 7), 573),
-           TimeSeriesCases(DateTime(2020, 4, 8), 565),
+      TimeSeriesCases(DateTime(2020, 4, 6), 489),
+      TimeSeriesCases(DateTime(2020, 4, 7), 573),
+      TimeSeriesCases(DateTime(2020, 4, 8), 565),
+      TimeSeriesCases(DateTime(2020, 4, 9), 813),
+      TimeSeriesCases(DateTime(2020, 4, 10), 871),
+      TimeSeriesCases(DateTime(2020, 4, 11), 854),
+      TimeSeriesCases(DateTime(2020, 4, 12), 758),
     ];
     var dailyRecovered = [
       TimeSeriesRecoverCases(DateTime(2020, 3, 1), 0),
@@ -287,7 +298,11 @@ class _CoreMobile extends StatelessWidget {
       TimeSeriesRecoverCases(DateTime(2020, 4, 5), 43),
       TimeSeriesRecoverCases(DateTime(2020, 4, 6), 65),
       TimeSeriesRecoverCases(DateTime(2020, 4, 7), 75),
-      TimeSeriesRecoverCases(DateTime(2020, 4, 8), 38),
+      TimeSeriesRecoverCases(DateTime(2020, 4, 8), 96),
+      TimeSeriesRecoverCases(DateTime(2020, 4, 9), 70),
+      TimeSeriesRecoverCases(DateTime(2020, 4, 10), 151),
+      TimeSeriesRecoverCases(DateTime(2020, 4, 11), 186),
+      TimeSeriesRecoverCases(DateTime(2020, 4, 12), 114),
     ];
     var dailyDeaths = [
       TimeSeriesDeathCases(DateTime(2020, 3, 1), 0),
@@ -327,8 +342,12 @@ class _CoreMobile extends StatelessWidget {
       TimeSeriesDeathCases(DateTime(2020, 4, 4), 13),
       TimeSeriesDeathCases(DateTime(2020, 4, 5), 22),
       TimeSeriesDeathCases(DateTime(2020, 4, 6), 16),
-      TimeSeriesDeathCases(DateTime(2020, 4, 7), 26),
-      TimeSeriesDeathCases(DateTime(2020, 4, 8), 19),
+      TimeSeriesDeathCases(DateTime(2020, 4, 7), 27),
+      TimeSeriesDeathCases(DateTime(2020, 4, 8), 20),
+      TimeSeriesDeathCases(DateTime(2020, 4, 9), 46),
+      TimeSeriesDeathCases(DateTime(2020, 4, 10), 22),
+      TimeSeriesDeathCases(DateTime(2020, 4, 11), 40),
+      TimeSeriesDeathCases(DateTime(2020, 4, 12), 42),
     ];
     return viewModel.busy != true
         ? SingleChildScrollView(

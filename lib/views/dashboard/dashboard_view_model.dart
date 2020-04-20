@@ -13,6 +13,7 @@ class DashboardViewModel extends BaseViewModel {
   final NavigatorService navigatorService;
   WorldData worldData;
   List<CountryData> countries;
+  CountryData countryData;
   DateWiseCount dateWiseCount;
 
   Map<String, double> dataMap = Map();
@@ -27,7 +28,20 @@ class DashboardViewModel extends BaseViewModel {
     @required this.navigatorService,
   });
 
-  void fetchWorldData() async {
+  // void fetchWorldData() async {
+  //   log.i('fetchWorldData');
+  //   busy = true;
+  //   worldData = await apiService.getWorldData();
+  //   print(worldData.active);
+  //   dataMap.putIfAbsent("Active", () => worldData.active.toDouble());
+
+  //   dataMap.putIfAbsent("Recovered", () => worldData.recovered.toDouble());
+  //   dataMap.putIfAbsent("Deaths", () => worldData.deaths.toDouble());
+  //   busy = false;
+  //   // fetchDateWiseCount();
+  // }
+
+   void fetchWorldData() async {
     log.i('fetchWorldData');
     busy = true;
     worldData = await apiService.getWorldData();
@@ -39,6 +53,7 @@ class DashboardViewModel extends BaseViewModel {
     busy = false;
     // fetchDateWiseCount();
   }
+
 
   // void fetchDateWiseCount() async {
   //   log.i('fetchDateWiseCount');

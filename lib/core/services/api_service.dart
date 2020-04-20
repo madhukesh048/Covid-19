@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import '../base/base_service.dart';
 
 class ApiService extends BaseService {
-  static const _BASE_URL = 'https://corona.lmao.ninja';
+  static const _BASE_URL = 'https://corona.lmao.ninja/v2';
   static const _DATEWISE_URL = 'https://covidapi.info/api/v1/global/count';
   static const _INDIA_URL =
       'https://api.rootnet.in/covid19-in/stats/latest'; //official

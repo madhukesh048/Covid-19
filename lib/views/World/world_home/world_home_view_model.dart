@@ -1,17 +1,15 @@
 import 'package:covid19/core/base/base_view_model.dart';
 import 'package:covid19/core/models/country_data.dart';
 import 'package:covid19/core/models/world_data.dart';
-import 'package:covid19/core/models/world_news.dart';
 import 'package:covid19/core/services/api_service.dart';
 import 'package:covid19/core/services/navigator_service.dart';
-import 'package:covid19/views/core/core_view.dart';
-import 'package:covid19/views/country_details/country_details_view.dart';
-import 'package:covid19/views/home/home_view.dart';
+import 'package:covid19/views/India/india_home/india_home_view.dart';
+import 'package:covid19/views/World/country_details/country_details_view.dart';
+import 'package:covid19/views/World/world_home/world_home_view.dart';
 
-import 'package:covid19/views/world_news/world_news_view.dart';
 import 'package:flutter/material.dart';
 
-class HomeViewModel extends BaseViewModel {
+class WorldHomeViewModel extends BaseViewModel {
   final ApiService apiService;
   final NavigatorService navigatorService;
   List<CountryData> countries;
@@ -25,7 +23,7 @@ class HomeViewModel extends BaseViewModel {
     Colors.red[400],
   ];
 
-  HomeViewModel({
+  WorldHomeViewModel({
     @required this.apiService,
     @required this.navigatorService,
   });
@@ -62,17 +60,13 @@ class HomeViewModel extends BaseViewModel {
   void goToIndiaHome() {
     this
         .navigatorService
-        .navigateToPage(MaterialPageRoute(builder: (context) => CoreView()));
+        .navigateToPage(MaterialPageRoute(builder: (context) => IndiaHomeView()));
   }
 
   void goToWorldHome() {
      this
         .navigatorService
-        .navigateToPage(MaterialPageRoute(builder: (context) => HomeView()));
+        .navigateToPage(MaterialPageRoute(builder: (context) => WorldHomeView()));
   }
 
-  void goToWorldNews() {
-    this.navigatorService.navigateToPage(
-        MaterialPageRoute(builder: (context) => WorldNewsView()));
-  }
 }

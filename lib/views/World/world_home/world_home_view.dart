@@ -1,25 +1,26 @@
 library home_view;
 
+import 'package:covid19/views/World/world_home/world_home_view_model.dart';
 import 'package:intl/intl.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_architecture/provider_architecture.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
-import 'home_view_model.dart';
+import 'world_home_view_model.dart';
 
-part 'home_mobile.dart';
-part 'home_tablet.dart';
-part 'home_desktop.dart';
+part 'world_home_mobile.dart';
+part 'world_home_tablet.dart';
+part 'world_home_desktop.dart';
 
-class HomeView extends StatelessWidget {
+class WorldHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    HomeViewModel viewModel = HomeViewModel(
+    WorldHomeViewModel viewModel = WorldHomeViewModel(
       apiService: Provider.of(context),
       navigatorService: Provider.of(context),
     );
-    return ViewModelProvider<HomeViewModel>.withConsumer(
+    return ViewModelProvider<WorldHomeViewModel>.withConsumer(
         viewModel: viewModel,
         onModelReady: (viewModel) {
           viewModel.fetchAllCountries();
@@ -27,9 +28,9 @@ class HomeView extends StatelessWidget {
         },
         builder: (context, viewModel, child) {
           return ScreenTypeLayout(
-            mobile: _HomeMobile(viewModel),
-            desktop: _HomeDesktop(viewModel),
-            tablet: _HomeTablet(viewModel),
+            mobile: _WorldHomeMobile(viewModel),
+            desktop: _WorldHomeDesktop(viewModel),
+            tablet: _WorldHomeTablet(viewModel),
           );
         });
   }

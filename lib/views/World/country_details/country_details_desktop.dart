@@ -1,6 +1,6 @@
 part of country_details_view;
 
-class _CountryDetailsTablet extends StatelessWidget {
+class _CountryDetailsDesktop extends StatelessWidget {
    final CountryDetailsViewModel viewModel;
   final Map<String, double> dataMap = Map();
   final List<Color> colorList = [
@@ -9,7 +9,7 @@ class _CountryDetailsTablet extends StatelessWidget {
     Colors.red[400],
   ];
 
-  _CountryDetailsTablet(this.viewModel);
+  _CountryDetailsDesktop(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +65,7 @@ class _CountryDetailsTablet extends StatelessWidget {
                     dataMap: dataMap,
                     colorList: colorList,
                     chartRadius: 500,
+                    showChartValuesInPercentage: true,
                   ),
                 ),
               ],

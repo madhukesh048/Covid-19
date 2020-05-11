@@ -65,6 +65,7 @@ final StateDetailsViewModel viewModel;
                     dataMap: dataMap,
                     colorList: colorList,
                     chartRadius: 500,
+                    showChartValuesInPercentage: true,
                   ),
                 ),
               ],

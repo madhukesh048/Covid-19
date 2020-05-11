@@ -1,7 +1,7 @@
 part of core_view;
 
-class _CoreDesktop extends StatelessWidget {
-  final CoreViewModel viewModel;
+class _IndiaHomeDesktop extends StatelessWidget {
+  final IndiaHomeViewModel viewModel;
   final Map<String, double> dataMap = Map();
   final List<Color> colorList = [
     Colors.blue[300],
@@ -9,7 +9,7 @@ class _CoreDesktop extends StatelessWidget {
     Colors.red[400],
   ];
 
-  _CoreDesktop(this.viewModel);
+  _IndiaHomeDesktop(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
@@ -67,19 +67,7 @@ class _CoreDesktop extends StatelessWidget {
                   style: TextStyle(fontSize: 20),
                 ),
               ),
-              ListTile(
-                onTap: viewModel.goToWorldNews,
-                title: Text(
-                  "NEWS",
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-              // ListTile(
-              //   title: Text(
-              //     "HELP",
-              //     style: TextStyle(fontSize: 20),
-              //   ),
-              // ),
+            
             ],
           ),
         ),
@@ -142,6 +130,7 @@ class _CoreDesktop extends StatelessWidget {
                                   dataMap: dataMap,
                                   chartRadius: 500,
                                   colorList: colorList,
+                                  showChartValuesInPercentage: true,
                                 ),
                               ),
                             ],

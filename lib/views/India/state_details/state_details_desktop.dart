@@ -65,6 +65,7 @@ class _StateDetailsDesktop extends StatelessWidget {
                     dataMap: dataMap,
                     colorList: colorList,
                     chartRadius: 500,
+                    showChartValuesInPercentage: true,
                   ),
                 ),
               ],

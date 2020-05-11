@@ -1,9 +1,9 @@
 part of home_view;
 
-class _HomeMobile extends StatelessWidget {
-  final HomeViewModel viewModel;
+class _WorldHomeMobile extends StatelessWidget {
+  final WorldHomeViewModel viewModel;
 
-  _HomeMobile(this.viewModel);
+  _WorldHomeMobile(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
@@ -55,19 +55,6 @@ class _HomeMobile extends StatelessWidget {
                         style: TextStyle(fontSize: 20),
                       ),
                     ),
-                    ListTile(
-                      onTap: viewModel.goToWorldNews,
-                      title: Text(
-                        "NEWS",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    // ListTile(
-                    //   title: Text(
-                    //     "HELP",
-                    //     style: TextStyle(fontSize: 20),
-                    //   ),
-                    // ),
                   ],
                 ),
               ),
@@ -91,16 +78,15 @@ class _HomeMobile extends StatelessWidget {
                 child: Card(
                   elevation: 3,
                   child: ListTile(
-                    leading: SizedBox(
-                      width: 30,
-                      height: 30,
-                      child: Image.network(
-                          viewModel.countries.elementAt(i).countryInfo.flag),
-                    ),
                     trailing: Icon(Icons.chevron_right),
                     subtitle: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
+                        Text(
+                          'Confirmed: ' +
+                              viewModel.countries.elementAt(i).cases.toString(),
+                          style: TextStyle(color: Colors.black),
+                        ),
                         Text(
                           'Active: ' +
                               viewModel.countries
@@ -109,7 +95,6 @@ class _HomeMobile extends StatelessWidget {
                                   .toString(),
                           style: TextStyle(color: Colors.blue[300]),
                         ),
-                        SizedBox(width: 20),
                         Text(
                           'Deaths: ' +
                               viewModel.countries
@@ -120,12 +105,9 @@ class _HomeMobile extends StatelessWidget {
                         ),
                       ],
                     ),
-                    title: Padding(
-                      padding: const EdgeInsets.fromLTRB(6, 8, 0, 8),
-                      child: Text(
-                        viewModel.countries.elementAt(i).country,
-                        style: TextStyle(fontSize: 18),
-                      ),
+                    title: Text(
+                      viewModel.countries.elementAt(i).country,
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -176,14 +158,14 @@ class _HomeMobile extends StatelessWidget {
                           color: Colors.grey,
                           fontStyle: FontStyle.italic)),
                   SizedBox(
-                    height: 40,
+                    height: 20,
                   ),
                   PieChart(
                     dataMap: viewModel.dataMap,
                     colorList: viewModel.colorList,
                     legendPosition: LegendPosition.bottom,
                     chartRadius: 300,
-                    showChartValuesInPercentage: false,
+                    showChartValuesInPercentage: true,
                     showChartValues: false,
                     showChartValueLabel: false,
                     showChartValuesOutside: false,

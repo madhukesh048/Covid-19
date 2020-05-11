@@ -136,6 +136,7 @@ class _CountryDetailsMobile extends StatelessWidget {
               showChartValues: false,
               showChartValueLabel: false,
               showChartValuesOutside: false,
+              showChartValuesInPercentage: true,
               legendPosition: LegendPosition.bottom,
               legendStyle: TextStyle(fontSize: 18),
               chartValueStyle: TextStyle(color: Colors.white),

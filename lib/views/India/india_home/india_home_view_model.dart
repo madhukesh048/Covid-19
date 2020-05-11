@@ -3,18 +3,17 @@ import 'package:covid19/core/models/india_data.dart';
 import 'package:covid19/core/models/india_data_unoff.dart';
 import 'package:covid19/core/services/api_service.dart';
 import 'package:covid19/core/services/navigator_service.dart';
-import 'package:covid19/views/core/core_view.dart';
-import 'package:covid19/views/home/home_view.dart';
-import 'package:covid19/views/state_details/state_details_view.dart';
-import 'package:covid19/views/world_news/world_news_view.dart';
+import 'package:covid19/views/India/india_home/india_home_view.dart';
+import 'package:covid19/views/India/state_details/state_details_view.dart';
+import 'package:covid19/views/World/world_home/world_home_view.dart';
 import 'package:flutter/material.dart';
 
-class CoreViewModel extends BaseViewModel {
+class IndiaHomeViewModel extends BaseViewModel {
   final ApiService apiService;
   final NavigatorService navigatorService;
   IndiaDataUnOff indiaDataUnOff;
   IndiaData indiaData;
-  CoreViewModel({
+  IndiaHomeViewModel({
     @required this.apiService,
     @required this.navigatorService,
   });
@@ -22,16 +21,10 @@ class CoreViewModel extends BaseViewModel {
   void fetchIndiaData() async {
     log.i('fetchIndiadata');
     busy = true;
-    indiaDataUnOff = await apiService.getIndiaDataUnOff();
+    indiaDataUnOff = await apiService.getIndiaData();
     busy = false;
   }
 
-  void fetchIndiaDataOff() async {
-    log.i('fetchIndiadata');
-    busy = true;
-    indiaData = await apiService.getIndiaData();
-    busy = false;
-  }
 
   void goToStateDetailsPage(int index) {
     this.navigatorService.navigateToPage(MaterialPageRoute(
@@ -41,17 +34,14 @@ class CoreViewModel extends BaseViewModel {
   }
 
   void goToIndiaHome(){
-    this.navigatorService.navigateToPageWithReplacement(MaterialPageRoute(builder: (context) => CoreView()));
+    this.navigatorService.navigateToPageWithReplacement(MaterialPageRoute(builder: (context) => IndiaHomeView()));
   }
 
   void goToWorldHome() {
     this
         .navigatorService
-        .navigateToPage(MaterialPageRoute(builder: (context) => HomeView()));
+        .navigateToPage(MaterialPageRoute(builder: (context) => WorldHomeView()));
   }
 
-  void goToWorldNews() {
-    this.navigatorService.navigateToPage(
-        MaterialPageRoute(builder: (context) => WorldNewsView()));
-  }
+ 
 }

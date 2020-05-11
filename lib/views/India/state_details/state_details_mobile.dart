@@ -76,8 +76,8 @@ class _StateDetailsMobile extends StatelessWidget {
                 child: PieChart(
                   dataMap: dataMap,
                   colorList: colorList,
-                  chartRadius: 600,
-                  showChartValuesInPercentage: false,
+                  chartRadius: 400,
+                  showChartValuesInPercentage: true,
                   showChartValues: false,
                   showChartValueLabel: false,
                   showChartValuesOutside: false,

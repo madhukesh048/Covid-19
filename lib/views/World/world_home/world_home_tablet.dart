@@ -1,9 +1,9 @@
 part of home_view;
 
-class _HomeDesktop extends StatelessWidget {
-  final HomeViewModel viewModel;
+class _WorldHomeTablet extends StatelessWidget {
+  final WorldHomeViewModel viewModel;
 
-  _HomeDesktop(this.viewModel);
+  _WorldHomeTablet(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
@@ -50,18 +50,7 @@ class _HomeDesktop extends StatelessWidget {
                   style: TextStyle(fontSize: 20),
                 ),
               ),
-              ListTile(
-                title: Text(
-                  "NEWS",
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-              // ListTile(
-              //   title: Text(
-              //     "HELP",
-              //     style: TextStyle(fontSize: 20),
-              //   ),
-              // ),
+            
             ],
           ),
         ),
@@ -117,6 +106,7 @@ class _HomeDesktop extends StatelessWidget {
                                   dataMap: viewModel.dataMap,
                                   chartRadius: 500,
                                   colorList: viewModel.colorList,
+                                  showChartValuesInPercentage: true,
                                 ),
                               ),
                             ],
@@ -139,15 +129,7 @@ class _HomeDesktop extends StatelessWidget {
                                     child: Card(
                                       child: ListTile(
                                         trailing: Icon(Icons.chevron_right),
-                                        leading: SizedBox(
-                                          width: 30,
-                                          height: 30,
-                                          child: Image.network(viewModel
-                                              .countries
-                                              .elementAt(index)
-                                              .countryInfo
-                                              .flag),
-                                        ),
+                                       
                                         title: Text(viewModel.countries
                                             .elementAt(index)
                                             .country),
@@ -159,7 +141,7 @@ class _HomeDesktop extends StatelessWidget {
                                               'Confirmed: ' +
                                                   viewModel.countries
                                                       .elementAt(index)
-                                                      .cases
+                                                      .country
                                                       .toString(),
                                               style: TextStyle(
                                                 color: Colors.grey,
@@ -175,16 +157,16 @@ class _HomeDesktop extends StatelessWidget {
                                                 color: Colors.blue[300],
                                               ),
                                             ),
-                                            Text(
-                                              'Recovered: ' +
-                                                  viewModel.countries
-                                                      .elementAt(index)
-                                                      .recovered
-                                                      .toString(),
-                                              style: TextStyle(
-                                                color: Colors.green[400],
-                                              ),
-                                            ),
+                                            // Text(
+                                            //   'Recovered: ' +
+                                            //       viewModel.countries
+                                            //           .elementAt(index)
+                                            //           .recovered
+                                            //           .toString(),
+                                            //   style: TextStyle(
+                                            //     color: Colors.green[400],
+                                            //   ),
+                                            // ),
                                             Text(
                                               'Deaths: ' +
                                                   viewModel.countries

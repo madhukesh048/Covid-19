@@ -1,7 +1,7 @@
 part of core_view;
 
-class _CoreTablet extends StatelessWidget {
-  final CoreViewModel viewModel;
+class _IndiaHomeTablet extends StatelessWidget {
+  final IndiaHomeViewModel viewModel;
   final Map<String, double> dataMap = Map();
   final List<Color> colorList = [
     Colors.blue[300],
@@ -9,7 +9,7 @@ class _CoreTablet extends StatelessWidget {
     Colors.red[400],
   ];
 
-  _CoreTablet(this.viewModel);
+  _IndiaHomeTablet(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
@@ -67,19 +67,8 @@ class _CoreTablet extends StatelessWidget {
                   style: TextStyle(fontSize: 20),
                 ),
               ),
-              ListTile(
-                onTap: viewModel.goToWorldNews,
-                title: Text(
-                  "NEWS",
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-              // ListTile(
-              //   title: Text(
-              //     "Help",
-              //     style: TextStyle(fontSize: 20),
-              //   ),
-              // ),
+              
+            
             ],
           ),
         ),
@@ -142,6 +131,7 @@ class _CoreTablet extends StatelessWidget {
                                   dataMap: dataMap,
                                   chartRadius: 500,
                                   colorList: colorList,
+                                  showChartValuesInPercentage: true,
                                 ),
                               ),
                             ],

@@ -1,5 +1,4 @@
-import 'package:covid19/views/core/core_view.dart';
-import 'package:covid19/views/dashboard/dashboard_view.dart';
+import 'package:covid19/views/India/india_home/india_home_view.dart';
 
 import 'core/locator.dart';
 import 'core/providers.dart';
@@ -20,7 +19,7 @@ class MainApplication extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData.light(),
         navigatorKey: locator<NavigatorService>().navigatorKey,
-        home: CoreView(),
+        home: IndiaHomeView(),
       ),
     );
   }
